@@ -1,10 +1,10 @@
 import './App.css';
+import {Alert} from "react-bootstrap";
 
 function App() {
   return (
     <div>
-      <header>
-      </header>
+      <Alert>This is a application</Alert>
     </div>
   );
 }
