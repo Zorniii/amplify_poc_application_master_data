@@ -25,7 +25,6 @@ export default function AddNewApplication() {
             description: description,
             bcal: isBCAL,
             applicationSurveyFile: s3url,
-            //applicationSurveyCompletionDate: new Date(applicationSurveyCompletionDate),
         }
 
         await API.graphql(graphqlOperation(createApplication, {input: application}));
@@ -54,15 +53,6 @@ export default function AddNewApplication() {
                 <Form.Control type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                               placeholder="Enter description"
                               onChange={evt => setApplicationSurveyXLSX([...applicationSurveyXLSX,evt.target.files[0]])}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Application Survey Completion Date</Form.Label>
-                <Form.Control type="date" placeholder="Enter description"
-                              value={applicationData.applicationSurveyCompletionDate}
-                              onChange={evt => setApplicationData({
-                                  ...applicationData,
-                                  applicationSurveyCompletionDate: evt.target.value
-                              })}/>
             </Form.Group>
             <Button variant="primary" onClick={add}>
                 Submit
